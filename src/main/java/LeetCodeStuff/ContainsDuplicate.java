@@ -1,3 +1,4 @@
+package LeetCodeStuff;
 import java.util.HashSet;
 
 public class ContainsDuplicate {
@@ -10,6 +11,7 @@ public class ContainsDuplicate {
                 return true;
             }
         }
+
         return false;
     }
 }

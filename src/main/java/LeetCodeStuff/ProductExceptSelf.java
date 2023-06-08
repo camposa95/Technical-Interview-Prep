@@ -1,3 +1,4 @@
+package LeetCodeStuff;
 import java.util.Arrays;
 
 public class ProductExceptSelf {

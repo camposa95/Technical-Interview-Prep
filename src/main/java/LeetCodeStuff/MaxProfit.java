@@ -1,3 +1,4 @@
+package LeetCodeStuff;
 public class MaxProfit {
 
     public int maxProfit(int[] prices) {
