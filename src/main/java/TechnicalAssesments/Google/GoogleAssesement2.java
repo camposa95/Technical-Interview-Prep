@@ -1,4 +1,4 @@
-package TechnicalAssesments;
+package TechnicalAssesments.Google;
 
 import java.util.Collections;
 import java.util.HashSet;
