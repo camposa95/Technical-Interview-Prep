@@ -1,5 +1,11 @@
 package TechnicalAssesments.JPMorgan;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class JpMorgan2 {
     public static int deleteProducts(List<Integer> ids, int m) {
         Map<Integer, Integer> idCountMap = new HashMap<>();
