@@ -10,8 +10,7 @@ public class Citadel1 {
      * 1. INTEGER n_intervals
      * 2. INTEGER n_processes
      */
-
-    public static int bestSumAnyTreePath(List<Integer> parent, List<Integer> values) {
+	public static int bestSumAnyTreePath(List<Integer> parent, List<Integer> values) {
         int n = parent.size(); // Number of nodes in the tree
         
         // Create an adjacency list to represent the tree structure
@@ -41,10 +40,7 @@ public class Citadel1 {
             
             // Update the maximum sum at the current node by considering the maximum sum
             // among its children and the value of the current node
-            dp[node] = Math.max(dp[node], dp[child] + values.get(node));
+            dp[node] = Math.max(dp[node], dp[child] + values.get(child));
         }
     }
-
-
 }
-
