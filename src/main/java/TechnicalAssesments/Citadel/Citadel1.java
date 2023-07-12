@@ -6,7 +6,7 @@ public class Citadel1 {
      * Complete the 'findNumberOfWays' function below.
      *
      * The function is expected to return an INTEGER.
-     * The function accepts following parameters:
+     * The function accepts following parameters
      * 1. INTEGER n_intervals
      * 2. INTEGER n_processes
      */
