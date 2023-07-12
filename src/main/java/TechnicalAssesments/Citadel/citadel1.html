@@ -1,0 +1,125 @@
+<div class="ps-content-wrapper-v0">
+    <p>Given a tree rooted at node <em>0</em>&nbsp;and a <em>value</em>&nbsp;assigned to each node, determine the
+        maximum sum of the values along any path in the tree. The path must not be empty, and in some cases it might not
+        go through the root. The following tree (labeled <em>node number/value</em>) is analyzed below.</p>
+
+    <p>&nbsp;</p>
+
+    <p><img height="131" src="https://s3.amazonaws.com/istreet-assets/ifeMVWJmkg0mvO0NxbZGmg/sumanytreeexample.png"
+            width="347"></p>
+
+    <p>Two of the possible paths are <em>4 → 0 → 1 → 2 → 3</em> which has a sum of <em>15 + 5 + 7 + -10 + 4 =
+            21</em>&nbsp;and <em>1 → 2 → 3</em>&nbsp;with a sum of <em>7 + -10 + 4 = 1.</em>&nbsp; A third possible
+        path, the maximum sum path, is <em>4 → 0 → 1</em>&nbsp;with a sum of <em>15 + 5 + 7 = 27.</em></p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Function Description </strong></p>
+
+    <p>&nbsp;</p>
+
+    <p>Complete the function <em>bestSumAnyTreePath</em> in the editor below. It must return an integer that represents
+        the largest value sum on any non-empty path in the tree.</p>
+
+    <p>&nbsp;</p>
+
+    <p><em>bestSumAnyTreePath</em> has the following parameter(s):</p>
+
+    <ul>
+        <li>
+            <em>parent int[]</em>: integer array&nbsp;where <em>parent[i] = j</em> means that node <em>j</em> is a
+            parent of node <em>i</em>. <em>parent[0]</em> will be set to <em>-1</em> to indicate that
+            node&nbsp;<em>0</em> is the root of the tree.
+        </li>
+        <li>
+            <em>values int[]</em>: integer array where <em>values[i] </em>denotes the value of node<em> i</em>
+        </li>
+    </ul>
+
+    <p>&nbsp;&nbsp;&nbsp;</p>
+
+    <p class="section-title">Constraints</p>
+
+    <ul>
+        <li><em>1 ≤ n&nbsp;≤ 10<sup>5</sup></em></li>
+        <li><em>parent[0] = -1&nbsp;</em></li>
+        <li><em>0 ≤ parent[i] &lt; n for 1 ≤ i &lt; n</em></li>
+        <li><em>-1000 ≤ values[i] ≤ 1000&nbsp;</em></li>
+        <li><em>the parent array defines a valid tree</em></li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <!--       <StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details open="">
+        <summary class="section-title">Input Format Format for Custom Testing</summary>
+
+        <div class="collapsable-details">
+            <p>Input from stdin will be processed as follows and passed to the function<em>.</em></p>
+
+            <p>&nbsp;</p>
+
+            <p>The first line contains an integer <em>n, </em>the size of arrays<em> parent</em> and <em>values.</em>
+            </p>
+
+            <p>Each of the following <em>n </em>lines contains an integer, <em>parent[i]</em>.</p>
+
+            <p>The next line, contains the integer <em>n</em></p>
+
+            <p>Each of the following <em>n </em>lines contains an integer, <em>values[i]</em>.</p>
+        </div>
+    </details>
+    <!--        </StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details open="open">
+        <summary class="section-title">Sample Case 0</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input</p>
+
+            <pre>5
+    -1
+    0
+    1
+    2
+    0
+    5
+    -2
+    10
+    10
+    -3
+    10
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>28</pre>
+
+            <p>&nbsp;</p>
+
+            <p class="section-title">Explanation</p>
+
+            <p>The tree looks like:</p>
+            <!--
+    <pre>
+            0 (-2)
+    &nbsp;     /     \
+         1 (10)  4 (10)
+    &nbsp;   /
+       2 (10)
+    &nbsp; /
+    3 (-2)</pre>
+    -->
+
+            <p><br>
+                <img height="131"
+                    src="https://s3.amazonaws.com/istreet-assets/FgEIRldGkcTLvDWOFQfzzA/sumanytreepathsample0.png"
+                    width="347">
+            </p>
+
+            <p><br>
+                The path with the largest sum of values starts at node <em>2</em> and ends at node <em>4</em>. The sum
+                of node values is <em>10+10+(-2)+10 = 28.</em></p>
+        </div>
+    </details>
+</div>
