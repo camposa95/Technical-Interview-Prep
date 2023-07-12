@@ -40,7 +40,7 @@ public class Citadel1 {
             
             // Update the maximum sum at the current node by considering the maximum sum
             // among its children and the value of the current node
-            dp[node] = Math.max(dp[node], dp[child] + values.get(child));
+            dp[node] = Math.max(dp[node], dp[child] + values.get(node));
         }
     }
 }
