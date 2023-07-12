@@ -9,38 +9,102 @@ public class Citadel1 {
      * The function accepts following parameters
      * 1. INTEGER n_intervals
      * 2. INTEGER n_processes
+	 */
+
+	class Result {
+
+    /*
+     * Complete the 'bestSumDownwardTreePath' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY parent
+     *  2. INTEGER_ARRAY values
      */
-	 public static int bestSumAnyTreePath(List<Integer> parent, List<Integer> values) {
-        int n = parent.size(); // Number of nodes in the tree
+     
+     static int bestPath = Integer.MIN_VALUE;
+
+    public static int bestSumDownwardTreePath(List<Integer> parent, List<Integer> values) {
         
-        // Create an adjacency list to represent the tree structure
-        List<List<Integer>> adjList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adjList.add(new ArrayList<>());
+        if(parent.size() == 1) return values.get(0);
+        
+        
+        Map<Integer, List<Integer>> tree = new HashMap<>();
+        for(int i = 1; i < parent.size(); i++) {
+            List<Integer> temp = tree.getOrDefault(parent.get(i), null);
+            if(temp == null) {
+                temp = new ArrayList<>();
+                temp.add(i);
+                tree.put(parent.get(i), temp);
+            }
+            
+            else {
+                temp.add(i);
+            }
         }
-        for (int i = 1; i < n; i++) {
-            int p = parent.get(i);
-            adjList.get(p).add(i);
-        }
         
-        int[] dp = new int[n]; // Dynamic programming array to store the maximum sum at each node
+        findBestSum(parent, values, tree, 0, 0);
         
-        // Perform a depth-first search to calculate the maximum sum at each node
-        dfs(adjList, values, dp, 0); // Start the DFS from the root node (node 0)
-        
-        return dp[0]; // The maximum sum at the root node represents the largest value sum in the tree
+        return bestPath;
+
     }
     
-    private static void dfs(List<List<Integer>> adjList, List<Integer> values, int[] dp, int node) {
-        dp[node] = values.get(node); // Initialize the dp array with the value of the current node
+    public static void findBestSum(List<Integer> parent, List<Integer> values, 
+                            Map<Integer, List<Integer>> tree, int root, int sum) {
+                                
         
-        // Traverse all the child nodes of the current node
-        for (int child : adjList.get(node)) {
-            dfs(adjList, values, dp, child); // Recursively perform DFS on each child node
-            
-            // Update the maximum sum at the current node by considering the maximum sum
-            // among its children and the value of the current node
-            dp[node] = Math.max(dp[node], dp[child] + values.get(node));
+        
+        sum = sum + values.get(root);
+        bestPath = Math.max(bestPath, sum);
+        sum = Math.max(0, sum);
+        
+        if(tree.get(root) == null) return;
+        
+        for(Integer child: tree.get(root)) {
+            findBestSum(parent, values, tree, child, sum);
         }
+        
     }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int parentCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> parent = IntStream.range(0, parentCount).mapToObj(i -> {
+            try {
+                return bufferedReader.readLine().replaceAll("\\s+$", "");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        })
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        int valuesCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> values = IntStream.range(0, valuesCount).mapToObj(i -> {
+            try {
+                return bufferedReader.readLine().replaceAll("\\s+$", "");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        })
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        int result = Result.bestSumDownwardTreePath(parent, values);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
 }
