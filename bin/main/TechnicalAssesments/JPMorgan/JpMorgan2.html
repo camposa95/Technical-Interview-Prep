@@ -1,0 +1,150 @@
+<div class="ps-content-wrapper-v0">
+
+
+    <p>A salesperson must sell <em>n</em> items in a bag with random IDs. The salesperson can remove as many as
+        <em>m</em> items from the bag. Determine the minimum number of different IDs the final bag can contain after
+        performing, at most, <em>m</em> deletions.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Example</p>
+
+    <p><em>n = 6&nbsp;</em></p>
+
+    <p><em>ids = [1, 1, 1, 2, 3, 2]</em></p>
+
+    <p><em>m = 2&nbsp;</em></p>
+
+    <p>&nbsp;</p>
+
+    <p>Two possible actions that give the minimum 2 different IDs:</p>
+
+    <ol>
+        <li>Remove 2 items with ID = 2&nbsp; and the final bag will contain item <em>ids' = [1, 1, 1, 3]</em>
+        </li>
+        <li>Remove 1 item with ID = 2&nbsp; and 1 item with ID=3 and the final bag will contain item <em>ids' = [1, 1,
+                1, 2]</em>
+        </li>
+    </ol>
+
+    <p>&nbsp;</p>
+
+    <p>The minimum number of distinct IDs is 2.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Function Description</p>
+
+    <p>Complete the function <em>deleteProducts</em> in the editor below.</p>
+
+    <p>&nbsp;</p>
+
+    <p><em>deleteProducts</em> has the following parameters:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int ids[n]:</em>&nbsp; an array of integers</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int m</em>: an integer, the maximum number of deletions</p>
+
+    <p>&nbsp;</p>
+
+    <p>Returns:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;<em>&nbsp;int:</em> an integer that represents the minimum number of item IDs</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Constraints</p>
+
+    <ul>
+        <li><em>1 ≤ n ≤ 10<sup>5</sup></em></li>
+        <li><em>1 ≤ ids[i] ≤ 10<sup>6</sup></em></li>
+        <li><em>1 ≤ m ≤ 10<sup>5</sup></em></li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <!-- <StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details>
+        <summary class="section-title">Input Format For Custom Testing</summary>
+
+        <div class="collapsable-details">
+            <p>The first line contains an integer, <em>n</em>, that denotes the number of elements in <em>ids</em>.
+                Each line <em>i</em> of the <em>n</em> subsequent lines (where <em>0 ≤ i &lt; n</em>) contains an
+                integer <em>ids[i]</em>.</p>
+
+            <p>The last line contains an integer, <em>m</em>, that denotes the maximum number of items that can be
+                deleted.</p>
+        </div>
+    </details>
+    <!-- </StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details open="open">
+        <summary class="section-title">Sample Case 0</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input</p>
+
+            <pre>STDIN&nbsp;&nbsp;&nbsp;&nbsp;Function
+    -----&nbsp;&nbsp;&nbsp;&nbsp;-----
+    4&nbsp;&nbsp;&nbsp;&nbsp; →&nbsp;&nbsp;ids[] size n = 4
+    1&nbsp;&nbsp;&nbsp;&nbsp; →&nbsp;&nbsp;ids = [1, 1, 5, 5]
+    1
+    5
+    5
+    2&nbsp;&nbsp;&nbsp;&nbsp; →&nbsp;&nbsp;m = 2</pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>1</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <p>Two possible actions that give <em>1</em> as the minimum number of different IDs:</p>
+
+            <ol>
+                <li>Remove 2 items with ID = 1&nbsp; and the final bag will contain item <em>ids' = [5, 5]</em>
+                </li>
+                <li>Remove 2 items with ID = 5&nbsp; and the final bag will contain item <em>ids' = [1, 1]</em>
+                </li>
+            </ol>
+        </div>
+    </details>
+
+    <details>
+        <summary class="section-title">Sample Case 1</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input</p>
+
+            <pre>STDIN&nbsp;&nbsp;&nbsp;&nbsp;Function
+    -----&nbsp;&nbsp;&nbsp;&nbsp;-----
+    7&nbsp;&nbsp;&nbsp;&nbsp; →&nbsp;&nbsp;ids[] size n = 7
+    1&nbsp;&nbsp;&nbsp;&nbsp; →&nbsp;&nbsp;ids = [1, 2, 3, 1, 2, 2, 1]
+    2
+    3
+    1
+    2
+    2
+    1
+    3&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;m = 3</pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>2</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <p>Three possible actions that give <em>2</em> as the minimum number of different IDs:</p>
+
+            <ol>
+                <li>Remove 3 items with ID = 1&nbsp; and the final bag will contain item <em>ids' = [2, 3, 2, 2]</em>
+                </li>
+                <li>Remove 3 items with ID = 2&nbsp; and the final bag will contain item <em>ids' = [1, 3, 1, 1]</em>
+                </li>
+                <li>Remove 1 item with ID = 3&nbsp; and the final bag will contain item <em>ids' = [1, 2, 1, 2, 2,
+                        1]</em>
+                </li>
+            </ol>
+        </div>
+    </details>
+</div>
