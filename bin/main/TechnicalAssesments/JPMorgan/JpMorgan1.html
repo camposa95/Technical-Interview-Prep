@@ -1,0 +1,171 @@
+<div class="ps-content-wrapper-v0">
+    <p>An <em>ideal number</em> is a positive integer with only <em>3</em> and <em>5</em> as prime divisors. It can be
+        expressed in the form of <em>3<sup>x</sup> × 5<sup>y</sup></em>, where <em>x</em> and <em>y</em> are
+        non-negative integers. For example, <em>15, 45,</em> and <em>75</em> are ideal numbers but <em>6, 10</em>, and
+        <em>21</em> are not.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Find the number of ideal integers within the given segment <em>[low, high] </em>inclusive.</p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Example</strong></p>
+
+    <p><em>low = 200</em></p>
+
+    <p><em>high = 405</em></p>
+
+    <p>&nbsp;</p>
+
+    <pre>Power  of 3  of 5
+    0       1     1
+    1       3     5
+    2       9     25
+    3       27    125
+    4       81    625
+    5       243   3125
+    6       729   15625
+    </pre>
+
+    <p>&nbsp;</p>
+
+    <p>There are <em>4</em>&nbsp;ideal integers in the range [200, 405] inclusive :</p>
+
+    <p><em>3<sup>2</sup>&nbsp;* 5<sup>2</sup>&nbsp;= 9 * 25 = 225</em></p>
+
+    <p><em>3<sup>5</sup>&nbsp;* 5<sup>0</sup>&nbsp;= 243 * 1 = 243<br>
+            3<sup>1</sup>&nbsp;* 5<sup>3</sup>&nbsp;= 3 * 125 = 375</em></p>
+
+    <p><em>3<sup>4</sup>&nbsp;* 5<sup>1</sup>&nbsp;= 81 * 5 = 405</em>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Function Description</p>
+
+    <p>Complete the function <em>getIdealNums</em> in the editor.</p>
+
+    <p>&nbsp;</p>
+
+    <p><em>getIdealNums</em> has the following parameter(s):</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int low:</em>&nbsp; an integer, the lower range limit, inclusive</p>
+
+    <p>&nbsp;&nbsp;&nbsp; <em>int high</em>: an integer, the upper range limit, inclusive</p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Returns</strong></p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int:</em>&nbsp;the number of ideal&nbsp;integers in the inclusive range</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Constraints</p>
+
+    <ul>
+        <li>
+            <em>1 ≤ low ≤ high ≤ 2 x 10<sup>9</sup></em><br>
+            &nbsp;
+        </li>
+    </ul>
+    <!-- <StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details>
+        <summary class="section-title">Input Format For Custom Testing</summary>
+
+        <div class="collapsable-details">
+            <p>The first line contains the integer, <em>low</em>, that denotes the lower boundary.</p>
+
+            <p>The second line contains the integer, <em>high</em>, that denotes the upper boundary.</p>
+        </div>
+    </details>
+    <!-- </StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details open="open">
+        <summary class="section-title">Sample Case 0</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN&nbsp;&nbsp;&nbsp;&nbsp;Function
+    -----&nbsp;&nbsp;&nbsp;&nbsp;--------
+    1&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;low = 1
+    1&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;high = 1
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>1</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <p>&nbsp;</p>
+
+            <p>Only <em>1</em> ideal integer in <em>[1, 1]</em> can be expressed as <em>3<sup>x</sup>5<sup>y</sup></em>:
+                <em>1 = 3<sup>0</sup>5<sup>0</sup>.</em></p>
+        </div>
+    </details>
+
+    <details>
+        <summary class="section-title">Sample Case 1</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN&nbsp;&nbsp;&nbsp;&nbsp;Function 
+    -----&nbsp;&nbsp;&nbsp;&nbsp;-------- 
+    400000 →&nbsp;low = 400000
+    500000&nbsp;→&nbsp;high = 500000
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>3</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <p>&nbsp;</p>
+
+            <p><em>421875 = 3<sup>3</sup>5<sup>6</sup></em></p>
+
+            <p><em>455625 = 3<sup>6</sup>5<sup>4</sup></em></p>
+
+            <p><em>492075 = 3<sup>9</sup>5<sup>2</sup></em></p>
+        </div>
+    </details>
+
+    <details>
+        <summary class="section-title">Sample Case 2</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN&nbsp;&nbsp;Function 
+    -----&nbsp;&nbsp;-------- 
+    1&nbsp;→&nbsp;&nbsp;&nbsp; low = 1
+    10&nbsp;→&nbsp;&nbsp;&nbsp;high = 10
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>4</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <p>&nbsp;</p>
+
+            <p><em>1 = 3<sup>0</sup>5<sup>0</sup></em></p>
+
+            <p><em>3 = 3<sup>1</sup>5<sup>0</sup></em></p>
+
+            <p><em>5 = 3<sup>0</sup>5<sup>1</sup></em></p>
+
+            <p><em>9 = 3<sup>2</sup>5<sup>0</sup></em></p>
+        </div>
+    </details>
+</div>
