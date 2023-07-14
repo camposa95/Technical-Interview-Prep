@@ -46,55 +46,72 @@ public class BlackRock2 {
     }
 
     private static double calculateMaxAmount(String fxRates, String selectedCurrency, String targetCurrency) {
-    String[] rateList = fxRates.split(";");
+        class Pair<K, V> {
+            private K key;
+            private V value;
 
-    // Create a map to store the exchange rates
-    Map<String, Map<String, Double>> exchangeRates = new HashMap<>();
+            public Pair(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
 
-    // Populate the exchangeRates map with the provided rates
-    for (String rate : rateList) {
-        String[] parts = rate.split(",");
-        String fromCurrency = parts[0];
-        String toCurrency = parts[1];
-        double rateValue = Double.parseDouble(parts[2]);
+            public K getKey() {
+                return key;
+            }
 
-        // Add the exchange rate to the map
-        if (!exchangeRates.containsKey(fromCurrency)) {
-            exchangeRates.put(fromCurrency, new HashMap<>());
-        }
-        exchangeRates.get(fromCurrency).put(toCurrency, rateValue);
-    }
-
-    // Use Depth-First Search (DFS) to find the maximum amount of the target currency
-    Stack<Pair<String, Double>> stack = new Stack<>();
-    stack.push(new Pair<>(selectedCurrency, 1.0));
-
-    double maxAmount = -1.0; // Maximum amount encountered
-
-    while (!stack.isEmpty()) {
-        Pair<String, Double> pair = stack.pop();
-        String currentCurrency = pair.getKey();
-        double currentAmount = pair.getValue();
-
-        // If the current currency is the target currency and the current amount is greater than the maxAmount, update maxAmount
-        if (currentCurrency.equals(targetCurrency) && currentAmount > maxAmount) {
-            maxAmount = currentAmount;
-        }
-
-        // Check if there are exchange rates for the current currency
-        if (exchangeRates.containsKey(currentCurrency)) {
-            Map<String, Double> rates = exchangeRates.get(currentCurrency);
-            for (String nextCurrency : rates.keySet()) {
-                double exchangeRate = rates.get(nextCurrency);
-                double nextAmount = currentAmount * exchangeRate;
-                stack.push(new Pair<>(nextCurrency, nextAmount));
+            public V getValue() {
+                return value;
             }
         }
-    }
+        String[] rateList = fxRates.split(";");
 
-    // Return the maximum amount
-    return maxAmount;
-}
+        // Create a map to store the exchange rates
+        Map<String, Map<String, Double>> exchangeRates = new HashMap<>();
+
+        // Populate the exchangeRates map with the provided rates
+        for (String rate : rateList) {
+            String[] parts = rate.split(",");
+            String fromCurrency = parts[0];
+            String toCurrency = parts[1];
+            double rateValue = Double.parseDouble(parts[2]);
+
+            // Add the exchange rate to the map
+            if (!exchangeRates.containsKey(fromCurrency)) {
+                exchangeRates.put(fromCurrency, new HashMap<>());
+            }
+            exchangeRates.get(fromCurrency).put(toCurrency, rateValue);
+        }
+
+        // Use Depth-First Search (DFS) to find the maximum amount of the target currency
+        Stack<Pair<String, Double>> stack = new Stack<>();
+        stack.push(new Pair<>(selectedCurrency, 1.0));
+
+        double maxAmount = -1.0; // Maximum amount encountered
+
+        while (!stack.isEmpty()) {
+            Pair<String, Double> pair = stack.pop();
+            String currentCurrency = pair.getKey();
+            double currentAmount = pair.getValue();
+
+            // If the current currency is the target currency and the current amount is greater than the maxAmount, update maxAmount
+            if (currentCurrency.equals(targetCurrency) && currentAmount > maxAmount) {
+                maxAmount = currentAmount;
+            }
+
+            // Check if there are exchange rates for the current currency
+            if (exchangeRates.containsKey(currentCurrency)) {
+                Map<String, Double> rates = exchangeRates.get(currentCurrency);
+                for (String nextCurrency : rates.keySet()) {
+                    double exchangeRate = rates.get(nextCurrency);
+                    double nextAmount = currentAmount * exchangeRate;
+                    stack.push(new Pair<>(nextCurrency, nextAmount));
+                }
+            }
+        }
+
+        // Return the maximum amount
+        return maxAmount;
+    }
 
 
 }
