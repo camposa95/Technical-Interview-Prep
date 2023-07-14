@@ -34,22 +34,22 @@ public class BlackRock2 {
     private static double calculateMaxAmount(String fxRates, String selectedCurrency, String targetCurrency) {
 
         class Pair<K, V> {
-        private K key;
-        private V value;
+            private K key;
+            private V value;
 
-        public Pair(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
+            public Pair(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
 
-        public K getKey() {
-            return key;
-        }
+            public K getKey() {
+                return key;
+            }
 
-        public V getValue() {
-            return value;
+            public V getValue() {
+                return value;
+            }
         }
-    }
 
         String[] rateList = fxRates.split(";");
 
