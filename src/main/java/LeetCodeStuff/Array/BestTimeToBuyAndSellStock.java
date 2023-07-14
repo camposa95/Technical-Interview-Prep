@@ -1,5 +1,5 @@
-package LeetCodeStuff;
-public class MaxProfit {
+package LeetCodeStuff.Array;
+public class BestTimeToBuyAndSellStock {
 
     public int maxProfit(int[] prices) {
         int buyPrice = Integer.MAX_VALUE;

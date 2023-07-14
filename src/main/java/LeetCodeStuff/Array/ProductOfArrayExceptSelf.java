@@ -1,7 +1,7 @@
-package LeetCodeStuff;
+package LeetCodeStuff.Array;
 import java.util.Arrays;
 
-public class ProductExceptSelf {
+public class ProductOfArrayExceptSelf {
     
     public int[] productExceptSelf(int[] nums) {
         int [] result = new int[nums.length];

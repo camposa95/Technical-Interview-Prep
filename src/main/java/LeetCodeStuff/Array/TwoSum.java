@@ -1,7 +1,7 @@
-package LeetCodeStuff;
+package LeetCodeStuff.Array;
 import java.util.HashMap;
 
-public class TwoSums {
+public class TwoSum {
     
     public int[] twoSum(int[] nums, int target) {
 
