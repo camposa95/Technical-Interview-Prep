@@ -9,25 +9,6 @@ import java.util.*;
 
 public class BlackRock2 {
 
-	class Pair<K, V> {
-    private K key;
-    private V value;
-
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public K getKey() {
-        return key;
-    }
-
-    public V getValue() {
-        return value;
-    }
-}
-
-
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
@@ -47,6 +28,24 @@ public class BlackRock2 {
 
             // Print the result
             System.out.println(maxAmount);
+        }
+    }
+
+    class Pair<K, V> {
+        private K key;
+        private V value;
+
+        public Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return value;
         }
     }
 
