@@ -31,7 +31,9 @@ public class BlackRock2 {
         }
     }
 
-    class Pair<K, V> {
+    private static double calculateMaxAmount(String fxRates, String selectedCurrency, String targetCurrency) {
+
+        class Pair<K, V> {
         private K key;
         private V value;
 
@@ -49,7 +51,6 @@ public class BlackRock2 {
         }
     }
 
-    private static double calculateMaxAmount(String fxRates, String selectedCurrency, String targetCurrency) {
         String[] rateList = fxRates.split(";");
 
         // Create a map to store the exchange rates
