@@ -1,0 +1,111 @@
+<article data-hv-test-id="question-content">
+    <div class="sc-1penttt-6 fKaBIt">
+        <h2 data-hv-test-id="question-title" class="sc-1penttt-7 eMesI">Currency Exchange</h2>
+        <h3 data-hv-test-id="instructions-header" class="sc-1penttt-8 jKFjSL">Programming challenge description:</h3>
+        <div data-hv-test-id="challenge-description" class="sc-1penttt-28 eCYNLd"><span
+                data-hv-test-id="challenge-description-markdown">
+                <span data-hv-test-id="challenge-description-markdown-content" class="sc-1erop1y-0 aQYCs">
+                    <p>Given</p>
+                    <ul>
+                        <li>A list of foreign exchange rates</li>
+                        <li>A selected curreny</li>
+                        <li>A target currency</li>
+                    </ul>
+                    <p>Your goal is to calculate the max amount of the target currency to 1 unit of the selected
+                        currency through the FX transactions. Assume all transations are free and done immediately. If
+                        you cannot finish the exchange, return <code>-1.0</code>.</p>
+                </span>
+            </span></div>
+        <div class="sc-1penttt-4 lhSoGj">Input:</div>
+        <div data-hv-test-id="input-description" class="sc-1penttt-28 eCYNLd"><span
+                data-hv-test-id="challenge-input-markdown">
+                <span data-hv-test-id="challenge-input-markdown-content" class="sc-1erop1y-0 aQYCs">
+                    <p>You will be provided a list of fx rates, a selected currency, and a target currency.</p>
+                    <p>For example:</p>
+                    <pre><code>FX rates list: 
+USD to JPY 1 to 109 
+USD to GBP 1 to 0.71 
+GBP to JPY 1 to 155
+Original currency: USD 
+Target currency : JPY
+</code></pre>
+                </span>
+            </span></div>
+        <div class="sc-1penttt-4 sc-1penttt-5 lhSoGj fCDRqy">Output:</div>
+        <div data-hv-test-id="output-description" class="sc-1penttt-28 eCYNLd"><span
+                data-hv-test-id="challenge-output-markdown">
+                <span data-hv-test-id="challenge-output-markdown-content" class="sc-1erop1y-0 aQYCs">
+                    <p>Calculated the max target currency will can get.</p>
+                    <p>For example:</p>
+                    <pre><code>USD to JPY -&gt; 109
+USD to GBP to JPY = 0.71 * 155 = 110.05 &gt; 109, 
+</code></pre>
+                    <p>so the max value will be <code>110.05</code></p>
+                </span>
+            </span></div>
+    </div>
+    <div class="sc-1penttt-30 lgTVsg">
+        <div class="sc-1penttt-33 dcLDRr">
+            <h4 data-hv-test-id="test-1-label" class="sc-1penttt-34 gLnqSQ">Test 1</h4>
+        </div>
+        <div class="sc-1penttt-31 dUScuV">
+            <h5 class="sc-1penttt-32 koNwOC">Test Input<button data-hv-component="true"
+                    data-hv-test-id="download-input-0" class="ju9kap-2 kPITXA"><span class="ju9kap-0 eKzZUk"><span
+                            style="margin: 0px;"><span style="position: relative;"><span
+                                    class="qiwy0e-0 dkTAtX">Download Test 1 Input</span></span><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" size="1" focusable="false"
+                                aria-hidden="true" data-hv-test-id="filedownload" role="img" class="prp68p-0 cZQiAL">
+                                <path
+                                    d="M369.9 97.98L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99V131.97c0-12.69-5.1-24.99-14.1-33.99zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v304.01zM208 216c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v88.02h-52.66c-11 0-20.59 6.41-25 16.72-4.5 10.52-2.38 22.62 5.44 30.81l68.12 71.78c5.34 5.59 12.47 8.69 20.09 8.69s14.75-3.09 20.09-8.7l68.12-71.75c7.81-8.2 9.94-20.31 5.44-30.83-4.41-10.31-14-16.72-25-16.72H208V216zm42.84 120.02l-58.84 62-58.84-62h117.68z">
+                                </path>
+                            </svg></span></span></button></h5>
+            <div data-hv-test-id="test-input-0" class="sc-1penttt-35 fHlVKo">
+                USD,CAD,1.3;USD,GBP,0.71;USD,JPY,109;GBP,JPY,155
+                USD
+                JPY</div>
+            <h5 class="sc-1penttt-32 koNwOC">Expected Output<button data-hv-component="true"
+                    data-hv-test-id="download-output-0" class="ju9kap-2 kPITXA"><span class="ju9kap-0 eKzZUk"><span
+                            style="margin: 0px;"><span style="position: relative;"><span
+                                    class="qiwy0e-0 dkTAtX">Download Test 1 Output</span></span><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" size="1" focusable="false"
+                                aria-hidden="true" data-hv-test-id="filedownload" role="img" class="prp68p-0 cZQiAL">
+                                <path
+                                    d="M369.9 97.98L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99V131.97c0-12.69-5.1-24.99-14.1-33.99zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v304.01zM208 216c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v88.02h-52.66c-11 0-20.59 6.41-25 16.72-4.5 10.52-2.38 22.62 5.44 30.81l68.12 71.78c5.34 5.59 12.47 8.69 20.09 8.69s14.75-3.09 20.09-8.7l68.12-71.75c7.81-8.2 9.94-20.31 5.44-30.83-4.41-10.31-14-16.72-25-16.72H208V216zm42.84 120.02l-58.84 62-58.84-62h117.68z">
+                                </path>
+                            </svg></span></span></button></h5>
+            <div data-hv-test-id="test-output-0" class="sc-1penttt-35 fHlVKo">110.05</div>
+        </div>
+    </div>
+    <div class="sc-1penttt-30 lgTVsg">
+        <div class="sc-1penttt-33 dcLDRr">
+            <h4 data-hv-test-id="test-2-label" class="sc-1penttt-34 gLnqSQ">Test 2</h4>
+        </div>
+        <div class="sc-1penttt-31 dUScuV">
+            <h5 class="sc-1penttt-32 koNwOC">Test Input<button data-hv-component="true"
+                    data-hv-test-id="download-input-1" class="ju9kap-2 kPITXA"><span class="ju9kap-0 eKzZUk"><span
+                            style="margin: 0px;"><span style="position: relative;"><span
+                                    class="qiwy0e-0 dkTAtX">Download Test 2 Input</span></span><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" size="1" focusable="false"
+                                aria-hidden="true" data-hv-test-id="filedownload" role="img" class="prp68p-0 cZQiAL">
+                                <path
+                                    d="M369.9 97.98L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99V131.97c0-12.69-5.1-24.99-14.1-33.99zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v304.01zM208 216c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v88.02h-52.66c-11 0-20.59 6.41-25 16.72-4.5 10.52-2.38 22.62 5.44 30.81l68.12 71.78c5.34 5.59 12.47 8.69 20.09 8.69s14.75-3.09 20.09-8.7l68.12-71.75c7.81-8.2 9.94-20.31 5.44-30.83-4.41-10.31-14-16.72-25-16.72H208V216zm42.84 120.02l-58.84 62-58.84-62h117.68z">
+                                </path>
+                            </svg></span></span></button></h5>
+            <div data-hv-test-id="test-input-1" class="sc-1penttt-35 fHlVKo">
+                USD,GBP,0.7;USD,JPY,109;GBP,JPY,155;CAD,CNY,5.27;CAD,KRW,921
+                USD
+                CNY</div>
+            <h5 class="sc-1penttt-32 koNwOC">Expected Output<button data-hv-component="true"
+                    data-hv-test-id="download-output-1" class="ju9kap-2 kPITXA"><span class="ju9kap-0 eKzZUk"><span
+                            style="margin: 0px;"><span style="position: relative;"><span
+                                    class="qiwy0e-0 dkTAtX">Download Test 2 Output</span></span><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" size="1" focusable="false"
+                                aria-hidden="true" data-hv-test-id="filedownload" role="img" class="prp68p-0 cZQiAL">
+                                <path
+                                    d="M369.9 97.98L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99V131.97c0-12.69-5.1-24.99-14.1-33.99zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v304.01zM208 216c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v88.02h-52.66c-11 0-20.59 6.41-25 16.72-4.5 10.52-2.38 22.62 5.44 30.81l68.12 71.78c5.34 5.59 12.47 8.69 20.09 8.69s14.75-3.09 20.09-8.7l68.12-71.75c7.81-8.2 9.94-20.31 5.44-30.83-4.41-10.31-14-16.72-25-16.72H208V216zm42.84 120.02l-58.84 62-58.84-62h117.68z">
+                                </path>
+                            </svg></span></span></button></h5>
+            <div data-hv-test-id="test-output-1" class="sc-1penttt-35 fHlVKo">-1.0</div>
+        </div>
+    </div>
+</article>
