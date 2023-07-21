@@ -1,0 +1,56 @@
+<div class="brinza-task-description">
+    <p><b>AND</b> is a standard bitwise operation. For example, given <tt style="white-space:pre-wrap">K</tt> = 12
+        (binary representation 01100) and <tt style="white-space:pre-wrap">L</tt> = 21 (binary representation 10101) we
+        obtain:</p>
+    <p>01100 <b>AND</b></p>
+    <p>10101 =</p>
+    <p><tt style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt></p>
+    <p>00100</p>
+    <p>The <b>AND</b> operation can be extended to N integers, for example:</p>
+    <p>01100 <b>AND</b></p>
+    <p>10101 <b>AND</b></p>
+    <p>00100 =</p>
+    <p><tt style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt></p>
+    <p>00100</p>
+    <p>Because <b>AND</b> of 01100 (first argument) and 10101 (second argument) is 00100, and <b>AND</b> of this number
+        with 00100 (third argument) is also 00100.</p>
+    <p>Write a function:</p>
+    <blockquote>
+        <p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution {
+                public int solution(int[] A); }</tt></p>
+    </blockquote>
+    <p>that, given an array A consisting of N integers, returns the size of the largest possible subset of A such that
+        <b>AND</b> of all its elements is greater than 0.</p>
+    <p><b>Examples:</b></p>
+    <p>1. Given A = [13, 7, 2, 8, 3] your function should return 3.</p>
+    <p>We can pick subset 13, 7 and 3. <b>AND</b> of these elements is positive and it is the largest possible subset of
+        numbers that fulfills the criteria.</p>
+    <p>1101 (13) <b>AND</b></p>
+    <p>0111 (7) <b>AND</b></p>
+    <p>0011 (3) =</p>
+    <p><tt style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt><tt style="white-space:pre-wrap">_</tt><tt
+            style="white-space:pre-wrap">_</tt></p>
+    <p>0001 (1)</p>
+    <p>2. Given A = [1, 2, 4, 8] your function should return 1. The <b>AND</b> of each pair from the array is equal to
+        0.</p>
+    <p>3. Given A = [16, 16] your function should return 2. The <b>AND</b> of both numbers is 16.</p>
+    <p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+    <blockquote>
+        <ul style="margin: 10px;padding: 0px;">
+            <li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];
+            </li>
+            <li>each element of array A is an integer within the range [<span class="number">1</span>..<span
+                    class="number">1,000,000,000</span>].</li>
+        </ul>
+    </blockquote>
+    <p>Remember, all submissions are being checked for plagiarism. Your recruiter will be informed in case suspicious
+        activity is detected.</p>
+</div>
