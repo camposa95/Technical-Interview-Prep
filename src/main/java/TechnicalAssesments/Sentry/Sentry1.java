@@ -10,9 +10,9 @@ public class Sentry1 {
         for (String badWord : badWordList) {
             if (badWord.contains("*")) {
                 // Escape characters for regex and replace '*' with '.*' to match any characters.
-                String regexWord = badWord.replaceAll("\\*", ".*");
-                // Use word boundaries to match the entire word.
-                Pattern pattern = Pattern.compile("\\b" + regexWord + "\\b", Pattern.CASE_INSENSITIVE);
+                String regexWord = badWord.replaceAll("\\*", ".*?");
+                // Use word boundaries and look ahead to match the entire word.
+                Pattern pattern = Pattern.compile("\\b" + regexWord + "(?=\\b|\\s|$)", Pattern.CASE_INSENSITIVE);
                 Matcher matcher = pattern.matcher(message);
                 StringBuffer sb = new StringBuffer();
 
@@ -41,21 +41,6 @@ public class Sentry1 {
 
         return message;
     }
-
-    public static void main(String[] args) {
-        String badWords = "fire* *fight*";
-        String message = "what do firefighters do? They fight fire.";
-        String filteredMessage = filterBadWords(badWords, message);
-        System.out.println(filteredMessage);
-    }
-}
-With this approach, the code should now handle the edge case with overlapping bad words containing wildcards:
-
-markdown
-Copy code
-what do ************ do? They ***** ****.
-Thank you for your patience, and I hope this resolves the issue. If you encounter any other edge cases or have further questions, please let me know.
-
 
 
 
