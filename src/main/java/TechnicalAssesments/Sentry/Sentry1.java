@@ -11,11 +11,11 @@ public class Sentry1 {
         StringBuilder regexBuilder = new StringBuilder();
         for (String badWord : badWordList) {
             if (badWord.contains("*")) {
-                // Escape the characters for regex and replace '*' with '.*' to match any characters.
-                String regexWord = badWord.replaceAll("\\*", ".*");
-                regexBuilder.append("\\b").append(regexWord).append("\\b|"); // Add word boundary anchors.
+                // Replace '*' with non-greedy '.*?' to avoid overlapping matches.
+                String regexWord = badWord.replaceAll("\\*", "(.*?\\\\b)");
+                regexBuilder.append(regexWord).append("|");
             } else {
-                regexBuilder.append("\\b").append(badWord).append("\\b|"); // Add word boundary anchors.
+                regexBuilder.append("\\b").append(Pattern.quote(badWord)).append("\\b|");
             }
         }
         // Remove the last '|' character from the regex string.
