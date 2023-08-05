@@ -1,0 +1,31 @@
+<div class="brinza-task-description">
+    <p>You are given an array A of N integers. You can multiply any of its elements by an arbitrary number. The task is
+        to make the first element of A positive, the second element equal to 0, the third element negative, the fourth
+        equal to 0, the fifth positive and so on. In other words, the signs of consecutive elements should be [+, 0, −,
+        0, +, 0, −, ...].</p>
+    <p>What is the minimum number of multiplications needed to create such a sequence?</p>
+    <p>Write a function:</p>
+    <blockquote>
+        <p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution {
+                public int solution(int[] A); }</tt></p>
+    </blockquote>
+    <p>that, given an array A, returns the minimum number of multiplications needed to create the described sequence, or
+        −1 if it is not possible.</p>
+    <p><b>Examples:</b></p>
+    <p>1. For A = [1, 0, 3, 4, 5, 0, 6], one of the optimal solutions is to multiply 3 by −2, 4 by 0 and 6 by −1. After
+        these changes, A will transform to [1, 0, −6, 0, 5, 0, −6]. The signs of the consecutive elements will be [+, 0,
+        −, 0, +, 0, −], as required in the task statement. The function should return 3.</p>
+    <p>2. For A = [7, 4, −3, 0, −5, 1, 0], it is not possible to convert the last zero into a negative number. The
+        function should return −1.</p>
+    <p>3. For A = [−5, 0, 3, 0], the function should return 2.</p>
+    <p>Assume that:</p>
+    <blockquote>
+        <ul style="margin: 10px;padding: 0px;">
+            <li>N is an integer within the range [<span class="number">1</span>..<span class="number">100</span>];</li>
+            <li>each element of array A is an integer within the range [<span class="number">−20</span>..<span
+                    class="number">20</span>].</li>
+        </ul>
+    </blockquote>
+    <p>In your solution, focus on <b><b>correctness</b></b>. The performance of your solution will not be the focus of
+        the assessment.</p>
+</div>
