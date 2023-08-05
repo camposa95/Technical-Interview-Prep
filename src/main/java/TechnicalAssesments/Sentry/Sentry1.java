@@ -1,5 +1,8 @@
 package TechnicalAssesments.Sentry;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Sentry1 {
     
     public static String filterBadWords(String badWords, String message) {
