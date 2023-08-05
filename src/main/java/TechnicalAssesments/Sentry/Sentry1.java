@@ -2,34 +2,29 @@ package TechnicalAssesments.Sentry;
 
 public class Sentry1 {
 
+    
     public static String filterBadWords(String badWords, String message) {
-        String[] badWordArray = badWords.split("\\s+");
-        StringBuilder filteredMessage = new StringBuilder(message);
+        // Split the badWords string into individual bad words.
+        String[] badWordList = badWords.split("\\s+");
 
-        for (String badWord : badWordArray) {
-            String regex = "\\b" + badWord.replace("*", "\\w*") + "\\b";
-            Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(filteredMessage);
-
-            StringBuffer sb = new StringBuffer();
-            while (matcher.find()) {
-                String replacement = "*".repeat(matcher.group().length());
-                matcher.appendReplacement(sb, replacement);
+        // Create a regular expression pattern to match the bad words with wildcards.
+        StringBuilder regexBuilder = new StringBuilder();
+        for (String badWord : badWordList) {
+            if (badWord.contains("*")) {
+                // Escape the characters for regex and replace '*' with '.*' to match any characters.
+                String regexWord = badWord.replaceAll("\\*", ".*");
+                regexBuilder.append("\\b").append(regexWord).append("\\b|"); // Add word boundary anchors.
+            } else {
+                regexBuilder.append("\\b").append(badWord).append("\\b|"); // Add word boundary anchors.
             }
-            matcher.appendTail(sb);
-            filteredMessage = sb;
-            
         }
+        // Remove the last '|' character from the regex string.
+        String regex = regexBuilder.substring(0, regexBuilder.length() - 1);
 
-        return filteredMessage.toString();
+        // Use the regex pattern to replace the bad words in the message with asterisks.
+        String filteredMessage = message.replaceAll(regex, match -> "*".repeat(match.length()));
+
+        return filteredMessage;
     }
-
-
-
-
-
-
-
-
 
 }
