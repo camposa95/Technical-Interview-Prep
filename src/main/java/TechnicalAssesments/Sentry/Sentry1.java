@@ -1,7 +1,6 @@
 package TechnicalAssesments.Sentry;
 
 public class Sentry1 {
-
     
     public static String filterBadWords(String badWords, String message) {
         // Split the badWords string into individual bad words.
