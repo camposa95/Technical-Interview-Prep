@@ -22,7 +22,7 @@ public class Sentry1 {
                     }
                 } else {
                     // Handle exact bad words
-                    if (word.equalsIgnoreCase(badWord)) {
+                    if (word.replaceAll("[^a-zA-Z]", "").equalsIgnoreCase(badWord)) {
                         isBadWord = true;
                         break;
                     }
@@ -38,6 +38,7 @@ public class Sentry1 {
 
         return filteredMessage.toString().trim();
     }
+
 
 
 }
