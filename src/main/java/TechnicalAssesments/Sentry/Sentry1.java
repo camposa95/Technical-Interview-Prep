@@ -3,23 +3,41 @@ package TechnicalAssesments.Sentry;
 public class Sentry1 {
     
     public static String filterBadWords(String badWords, String message) {
+        String[] badWordArray = badWords.split("\\s+"); // Split badWords by whitespace
+        String[] words = message.split("\\s+"); // Split the message into words by whitespace
+        StringBuilder filteredMessage = new StringBuilder();
 
-        // given badwords a whitespace separated string of bad words
-        // and message
-        // return the string filtered of all bad words by replacing them with *'s equal to the 
-        // length of the bad word
+        for (String word : words) {
+            boolean isBadWord = false;
 
-        // Other considerations:
-        // bad words can have wildcards in them represented by a *
-        // for example given:
-        // badWords = "jerk* *lame*"
-        // message = "Stop it, you jerkwad! I remain blameless!"
-        // the output should be:
-        // "Stop it, you *******! I remain *********!"
+            for (String badWord : badWordArray) {
+                if (badWord.contains("*")) {
+                    // Handle bad words with wildcards (*)
+                    String regex = "\\b" + badWord.replace("*", "\\w*") + "\\b";
+                    if (word.matches(regex)) {
+                        isBadWord = true;
+                        break;
+                    }
+                } else {
+                    // Handle exact bad words
+                    if (word.equals(badWord)) {
+                        isBadWord = true;
+                        break;
+                    }
+                }
+            }
 
-        // implementation here:
+            if (isBadWord) {
+                // If word is a bad word, replace it with *'s equal to the length of the word
+                filteredMessage.append("*".repeat(word.length())).append(" ");
+            } else {
+                // Otherwise, keep the original word
+                filteredMessage.append(word).append(" ");
+            }
+        }
 
-        
-
+        // Remove the trailing whitespace and return the filtered message
+        return filteredMessage.toString().trim();
     }
+
 }
