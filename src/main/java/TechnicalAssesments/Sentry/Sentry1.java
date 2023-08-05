@@ -22,9 +22,17 @@ public class Sentry1 {
         String regex = regexBuilder.substring(0, regexBuilder.length() - 1);
 
         // Use the regex pattern to replace the bad words in the message with asterisks.
-        String filteredMessage = message.replaceAll(regex, match -> "*".repeat(match.length()));
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(message);
+        StringBuffer sb = new StringBuffer();
 
-        return filteredMessage;
+        while (matcher.find()) {
+            String matchedWord = matcher.group();
+            matcher.appendReplacement(sb, "*".repeat(matchedWord.length()));
+        }
+        matcher.appendTail(sb);
+
+        return sb.toString();
     }
 
 }
