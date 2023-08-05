@@ -1,0 +1,60 @@
+<div class="brinza-task-description">
+    <p>There are three stacks of disks. Disks on each stack are sorted by size in increasing order from the bottom to
+        the top.</p>
+    <p>Our goal is to move all disks from these stacks onto the fourth stack, which is initially empty. In one move the
+        top element of one of the stacks can be moved to the fourth stack. After moving all disks onto the fourth stack,
+        they should be sorted by size in decreasing order from bottom to the top.</p>
+    <p>You are given three arrays: <tt style="white-space:pre-wrap">stack1</tt> of N1 integers, <tt
+            style="white-space:pre-wrap">stack2</tt> of N2 integers, and <tt style="white-space:pre-wrap">stack3</tt> of
+        N3 integers. Each array represents a stack in which the elements are listed from bottom to top (i.e. the last
+        element of the array is the top element of the stack).</p>
+    <p>Find the sequence of moves after which all the disks will be on the fourth stack, sorted by size in descending
+        order. You may assume that there are no two disks of the same size.</p>
+    <p>For example for <tt style="white-space:pre-wrap">stack1</tt> = [2, 7], <tt
+            style="white-space:pre-wrap">stack2</tt> = [4, 5] and <tt style="white-space:pre-wrap">stack3</tt> = [1],
+        the sequence of moves is 1−2−2−1−3:</p>
+    <blockquote>
+        <ul style="margin: 10px;padding: 0px;">
+            <li>move disk of size 7 from stack 1</li>
+            <li>move disk of size 5 from stack 2</li>
+            <li>move disk of size 4 from stack 2</li>
+            <li>move disk of size 2 from stack 1</li>
+            <li>move disk of size 1 from stack 3</li>
+        </ul>
+    </blockquote>
+    <p>After these moves the elements of the fourth stack are sorted in descending order: [7, 5, 4, 2, 1] and all other
+        stacks are empty.</p>
+    <p>Write a function:</p>
+    <blockquote>
+        <p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution {
+                public String solution(int[] stack1, int[] stack2, int[] stack3); }</tt></p>
+    </blockquote>
+    <p>that, given three arrays, <tt style="white-space:pre-wrap">stack1</tt>, <tt
+            style="white-space:pre-wrap">stack2</tt> and <tt style="white-space:pre-wrap">stack3</tt>, returns a string
+        representing the sequence of moves which should be performed. The J-th character of the string should be the
+        stack number (1, 2 or 3) from whose top the element should be moved in the J-th move.</p>
+    <p><b>Examples:</b></p>
+    <p>1. Given <tt style="white-space:pre-wrap">stack1</tt> = [2, 7], <tt style="white-space:pre-wrap">stack2</tt> =
+        [4, 5] and <tt style="white-space:pre-wrap">stack3</tt> = [1], the function should return "12213", as explained
+        above.</p>
+    <p>2. Given <tt style="white-space:pre-wrap">stack1</tt> = [10, 20, 30], <tt
+            style="white-space:pre-wrap">stack2</tt> = [8] and <tt style="white-space:pre-wrap">stack3</tt> = [1], the
+        function should return "11123".</p>
+    <p>3. Given <tt style="white-space:pre-wrap">stack1</tt> = [7], <tt style="white-space:pre-wrap">stack2</tt> = []
+        and <tt style="white-space:pre-wrap">stack3</tt> = [9], the function should return "31".</p>
+    <p>Assume that:</p>
+    <blockquote>
+        <ul style="margin: 10px;padding: 0px;">
+            <li><tt style="white-space:pre-wrap">N1</tt>, <tt style="white-space:pre-wrap">N2</tt> and <tt
+                    style="white-space:pre-wrap">N3</tt> are integers within the range [<span
+                    class="number">0</span>..<span class="number">100</span>];</li>
+            <li>each element of arrays <tt style="white-space:pre-wrap">stack1</tt>, <tt
+                    style="white-space:pre-wrap">stack2</tt> and <tt style="white-space:pre-wrap">stack3</tt> is an
+                integer within the range [<span class="number">1</span>..<span class="number">1,000</span>];</li>
+            <li>disk sizes are unique, i.e. there are no two disks of the same size;</li>
+            <li>on each stack disks are sorted by size in ascending order.</li>
+        </ul>
+    </blockquote>
+    <p>In your solution, focus on <b><b>correctness</b></b>. The performance of your solution will not be the focus of
+        the assessment.</p>
+</div>
