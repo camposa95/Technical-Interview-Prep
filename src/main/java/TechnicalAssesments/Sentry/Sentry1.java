@@ -18,6 +18,7 @@ public class Sentry1 {
             }
             matcher.appendTail(sb);
             filteredMessage = sb;
+            
         }
 
         return filteredMessage.toString();
