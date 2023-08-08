@@ -9,6 +9,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BelevedereTrading1 {
+      import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WeightedMovingAverage {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
@@ -50,4 +59,6 @@ public class BelevedereTrading1 {
             this.lastSeqNumber = 0;
         }
     }
+}
+
 }
