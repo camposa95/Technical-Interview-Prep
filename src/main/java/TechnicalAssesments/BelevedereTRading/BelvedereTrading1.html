@@ -1,0 +1,255 @@
+<div class="sc-1penttt-6 fKaBIt">
+    <h2 data-hv-test-id="question-title" class="sc-1penttt-7 eMesI">Weighted Moving Average</h2>
+    <h3 data-hv-test-id="instructions-header" class="sc-1penttt-8 jKFjSL">Programming challenge description:</h3>
+    <div data-hv-test-id="challenge-description" class="sc-1penttt-28 eCYNLd"><span
+            data-hv-test-id="challenge-description-markdown">
+            <span data-hv-test-id="challenge-description-markdown-content" class="sc-1erop1y-0 aQYCs">
+                <p>You are given a series of trades. Each trade has a key, a value, a quantity, and a sequence number.
+                    For each trade, print the weighted moving average of all the trades for that particular key. Round
+                    your average to <strong>two</strong> decimal places. If the sequence number for any trade <span
+                        class="latex-inline"><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>T</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">T</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
+                                    style="height:0.68333em;"></span><span class="strut bottom"
+                                    style="height:0.68333em;vertical-align:0em;"></span><span
+                                    class="base textstyle uncramped"><span class="mord mathit"
+                                        style="margin-right:0.13889em;">T</span></span></span></span></span> is less
+                    than the sequence number for any previous trade, throw out <span class="latex-inline"><span
+                            class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>T</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">T</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
+                                    style="height:0.68333em;"></span><span class="strut bottom"
+                                    style="height:0.68333em;vertical-align:0em;"></span><span
+                                    class="base textstyle uncramped"><span class="mord mathit"
+                                        style="margin-right:0.13889em;">T</span></span></span></span></span>. Do not
+                    print anything for <span class="latex-inline"><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <mi>T</mi>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">T</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
+                                    style="height:0.68333em;"></span><span class="strut bottom"
+                                    style="height:0.68333em;vertical-align:0em;"></span><span
+                                    class="base textstyle uncramped"><span class="mord mathit"
+                                        style="margin-right:0.13889em;">T</span></span></span></span></span> or factor
+                    it into your WMA.</p>
+                <p><span class="latex-inline"><span class="katex"><span class="katex-mathml"><math>
+                                    <semantics>
+                                        <mrow>
+                                            <msub>
+                                                <mi>M</mi>
+                                                <mrow>
+                                                    <mi>x</mi>
+                                                    <mo>+</mo>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                            </msub>
+                                            <mo>=</mo>
+                                            <mrow>
+                                                <mfrac>
+                                                    <mrow>
+                                                        <mo>(</mo>
+                                                        <msub>
+                                                            <mi>M</mi>
+                                                            <mi>x</mi>
+                                                        </msub>
+                                                        <mo>∗</mo>
+                                                        <msub>
+                                                            <mi>Q</mi>
+                                                            <mi>x</mi>
+                                                        </msub>
+                                                        <mo>)</mo>
+                                                        <mo>+</mo>
+                                                        <mo>(</mo>
+                                                        <msub>
+                                                            <mi>v</mi>
+                                                            <mrow>
+                                                                <mi>x</mi>
+                                                                <mo>+</mo>
+                                                                <mn>1</mn>
+                                                            </mrow>
+                                                        </msub>
+                                                        <mo>∗</mo>
+                                                        <msub>
+                                                            <mi>q</mi>
+                                                            <mrow>
+                                                                <mi>x</mi>
+                                                                <mo>+</mo>
+                                                                <mn>1</mn>
+                                                            </mrow>
+                                                        </msub>
+                                                        <mo>)</mo>
+                                                    </mrow>
+                                                    <mrow>
+                                                        <msub>
+                                                            <mi>Q</mi>
+                                                            <mrow>
+                                                                <mi>x</mi>
+                                                                <mo>+</mo>
+                                                                <mn>1</mn>
+                                                            </mrow>
+                                                        </msub>
+                                                    </mrow>
+                                                </mfrac>
+                                            </mrow>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">M_{x+1} = {(M_x * Q_x)+(v_{x+1} *
+                                            q_{x+1}) \over Q_{x+1}}</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
+                                    style="height:1.01em;"></span><span class="strut bottom"
+                                    style="height:1.501665em;vertical-align:-0.49166499999999996em;"></span><span
+                                    class="base textstyle uncramped"><span class="mord"><span class="mord mathit"
+                                            style="margin-right:0.10903em;">M</span><span class="vlist"><span
+                                                style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span
+                                                    class="fontsize-ensurer reset-size5 size5"><span
+                                                        style="font-size:0em;">​</span></span><span
+                                                    class="reset-textstyle scriptstyle cramped"><span
+                                                        class="mord scriptstyle cramped"><span
+                                                            class="mord mathit">x</span><span class="mbin">+</span><span
+                                                            class="mord mathrm">1</span></span></span></span><span
+                                                class="baseline-fix"><span
+                                                    class="fontsize-ensurer reset-size5 size5"><span
+                                                        style="font-size:0em;">​</span></span>​</span></span></span><span
+                                        class="mrel">=</span><span class="mord textstyle uncramped"><span
+                                            class="mord reset-textstyle textstyle uncramped"><span
+                                                class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span
+                                                class="mfrac"><span class="vlist"><span style="top:0.345em;"><span
+                                                            class="fontsize-ensurer reset-size5 size5"><span
+                                                                style="font-size:0em;">​</span></span><span
+                                                            class="reset-textstyle scriptstyle cramped"><span
+                                                                class="mord scriptstyle cramped"><span
+                                                                    class="mord"><span class="mord mathit">Q</span><span
+                                                                        class="vlist"><span
+                                                                            style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:0em;"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span><span
+                                                                                class="reset-scriptstyle scriptscriptstyle cramped"><span
+                                                                                    class="mord scriptscriptstyle cramped"><span
+                                                                                        class="mord mathit">x</span><span
+                                                                                        class="mbin">+</span><span
+                                                                                        class="mord mathrm">1</span></span></span></span><span
+                                                                            class="baseline-fix"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span
+                                                        style="top:-0.23000000000000004em;"><span
+                                                            class="fontsize-ensurer reset-size5 size5"><span
+                                                                style="font-size:0em;">​</span></span><span
+                                                            class="reset-textstyle textstyle uncramped frac-line"></span></span><span
+                                                        style="top:-0.485em;"><span
+                                                            class="fontsize-ensurer reset-size5 size5"><span
+                                                                style="font-size:0em;">​</span></span><span
+                                                            class="reset-textstyle scriptstyle uncramped"><span
+                                                                class="mord scriptstyle uncramped"><span
+                                                                    class="mopen">(</span><span class="mord"><span
+                                                                        class="mord mathit"
+                                                                        style="margin-right:0.10903em;">M</span><span
+                                                                        class="vlist"><span
+                                                                            style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.10903em;"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span><span
+                                                                                class="reset-scriptstyle scriptscriptstyle cramped"><span
+                                                                                    class="mord mathit">x</span></span></span><span
+                                                                            class="baseline-fix"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span>​</span></span></span><span
+                                                                    class="mbin">∗</span><span class="mord"><span
+                                                                        class="mord mathit">Q</span><span
+                                                                        class="vlist"><span
+                                                                            style="top:0.15em;margin-right:0.07142857142857144em;margin-left:0em;"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span><span
+                                                                                class="reset-scriptstyle scriptscriptstyle cramped"><span
+                                                                                    class="mord mathit">x</span></span></span><span
+                                                                            class="baseline-fix"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span>​</span></span></span><span
+                                                                    class="mclose">)</span><span
+                                                                    class="mbin">+</span><span
+                                                                    class="mopen">(</span><span class="mord"><span
+                                                                        class="mord mathit"
+                                                                        style="margin-right:0.03588em;">v</span><span
+                                                                        class="vlist"><span
+                                                                            style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span><span
+                                                                                class="reset-scriptstyle scriptscriptstyle cramped"><span
+                                                                                    class="mord scriptscriptstyle cramped"><span
+                                                                                        class="mord mathit">x</span><span
+                                                                                        class="mbin">+</span><span
+                                                                                        class="mord mathrm">1</span></span></span></span><span
+                                                                            class="baseline-fix"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span>​</span></span></span><span
+                                                                    class="mbin">∗</span><span class="mord"><span
+                                                                        class="mord mathit"
+                                                                        style="margin-right:0.03588em;">q</span><span
+                                                                        class="vlist"><span
+                                                                            style="top:0.15000000000000002em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span><span
+                                                                                class="reset-scriptstyle scriptscriptstyle cramped"><span
+                                                                                    class="mord scriptscriptstyle cramped"><span
+                                                                                        class="mord mathit">x</span><span
+                                                                                        class="mbin">+</span><span
+                                                                                        class="mord mathrm">1</span></span></span></span><span
+                                                                            class="baseline-fix"><span
+                                                                                class="fontsize-ensurer reset-size5 size5"><span
+                                                                                    style="font-size:0em;">​</span></span>​</span></span></span><span
+                                                                    class="mclose">)</span></span></span></span><span
+                                                        class="baseline-fix"><span
+                                                            class="fontsize-ensurer reset-size5 size5"><span
+                                                                style="font-size:0em;">​</span></span>​</span></span></span><span
+                                                class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></span>
+                </p>
+                <p>Where M = weighted moving average, Q = total quantity, q = current quantity, and v = current value.
+                </p>
+            </span>
+        </span></div>
+    <div class="sc-1penttt-4 lhSoGj">Input:</div>
+    <div data-hv-test-id="input-description" class="sc-1penttt-28 eCYNLd"><span
+            data-hv-test-id="challenge-input-markdown">
+            <span data-hv-test-id="challenge-input-markdown-content" class="sc-1erop1y-0 aQYCs">
+                <p>The input will be a semicolon delimited string of trades, with each trade being comma delimited. The
+                    parameters for each trade will be in order:</p>
+                <pre><code>Key
+Value
+Quantity
+Sequence number
+</code></pre>
+                <p>Where key is a string, value is a rational floating point number, quantity is a positive integer, and
+                    sequence number is a positive integer.</p>
+                <p>Example:</p>
+                <pre><code>1,2000,5,1;1,2050,5,2;2,3000,10,3
+</code></pre>
+            </span>
+        </span></div>
+    <div class="sc-1penttt-4 sc-1penttt-5 lhSoGj fCDRqy">Output:</div>
+    <div data-hv-test-id="output-description" class="sc-1penttt-28 eCYNLd"><span
+            data-hv-test-id="challenge-output-markdown">
+            <span data-hv-test-id="challenge-output-markdown-content" class="sc-1erop1y-0 aQYCs">
+                <p>For each trade you do a calculation for, print on a new line
+                    <code>{key}: {weighted moving average for key}</code>
+                </p>
+                <p>Make sure your answer is rounded to two decimal places. To help you with this, a function to
+                    automatically format to two decimal places has been included.</p>
+                <p>Example, from the example input above:</p>
+                <pre><code>1: 2000.00 # CurrentAverage(1) = ((0*0)+(2000*5))/5
+1: 2025.00 # CurrentAverage(1) = ((2000*5)+(2050*5))/10
+2: 3000.00 # CurrentAverage(2) = ((0*0)+(3000*10))/10
+</code></pre>
+            </span>
+        </span></div>
+</div>
