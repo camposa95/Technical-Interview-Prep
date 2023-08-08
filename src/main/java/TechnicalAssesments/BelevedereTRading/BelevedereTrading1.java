@@ -9,15 +9,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BelevedereTrading1 {
+  import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WeightedMovingAverage {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
-        String line;
+        String line = in.readLine(); // Read the entire line of input
+        String[] trades = line.split(";"); // Split input into individual trades
         Map<String, TradeStats> tradeMap = new HashMap<>();
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-        while ((line = in.readLine()) != null) {
-            String[] tradeInfo = line.split(",");
+        for (String tradeStr : trades) {
+            String[] tradeInfo = tradeStr.split(",");
             if (tradeInfo.length == 4) {
                 String key = tradeInfo[0];
                 double value = Double.parseDouble(tradeInfo[1]);
@@ -53,4 +63,6 @@ public class BelevedereTrading1 {
             this.lastSeqNumber = 0;
         }
     }
+}
+
 }
