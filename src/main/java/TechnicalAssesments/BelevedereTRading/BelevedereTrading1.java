@@ -9,6 +9,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BelevedereTrading1 {
+    import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WeightedMovingAverage {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(reader);
@@ -31,15 +40,11 @@ public class BelevedereTrading1 {
                     tradeStats.quantitySum += quantity;
                     tradeStats.lastSeqNumber = sequenceNumber;
                     tradeMap.put(key, tradeStats);
+
+                    double weightedMovingAverage = tradeStats.valueSum / tradeStats.quantitySum;
+                    System.out.println(key + ": " + decimalFormat.format(weightedMovingAverage));
                 }
             }
-        }
-
-        for (Map.Entry<String, TradeStats> entry : tradeMap.entrySet()) {
-            String key = entry.getKey();
-            TradeStats tradeStats = entry.getValue();
-            double weightedMovingAverage = tradeStats.valueSum / tradeStats.quantitySum;
-            System.out.println(key + ": " + decimalFormat.format(weightedMovingAverage));
         }
     }
 
@@ -54,4 +59,6 @@ public class BelevedereTrading1 {
             this.lastSeqNumber = 0;
         }
     }
+}
+
 }
