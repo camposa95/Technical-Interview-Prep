@@ -24,8 +24,12 @@ public class BelevedereTrading1 {
                 int quantity = Integer.parseInt(tradeInfo[2]);
                 int sequenceNumber = Integer.parseInt(tradeInfo[3]);
 
-                if (!tradeMap.containsKey(key) || sequenceNumber > tradeMap.get(key).lastSeqNumber) {
-                    tradeMap.put(key, new TradeStats(value, quantity, sequenceNumber));
+                TradeStats tradeStats = tradeMap.getOrDefault(key, new TradeStats());
+                if (sequenceNumber > tradeStats.lastSeqNumber) {
+                    tradeStats.valueSum += value * quantity;
+                    tradeStats.quantitySum += quantity;
+                    tradeStats.lastSeqNumber = sequenceNumber;
+                    tradeMap.put(key, tradeStats);
                 }
             }
         }
@@ -33,27 +37,20 @@ public class BelevedereTrading1 {
         for (Map.Entry<String, TradeStats> entry : tradeMap.entrySet()) {
             String key = entry.getKey();
             TradeStats tradeStats = entry.getValue();
-            double weightedMovingAverage = (tradeStats.prevWMA * tradeStats.prevQuantity +
-                    tradeStats.value * tradeStats.quantity) / (tradeStats.prevQuantity + tradeStats.quantity);
-            tradeStats.prevWMA = weightedMovingAverage;
-            tradeStats.prevQuantity += tradeStats.quantity;
+            double weightedMovingAverage = tradeStats.valueSum / tradeStats.quantitySum;
             System.out.println(key + ": " + decimalFormat.format(weightedMovingAverage));
         }
     }
 
     static class TradeStats {
-        double value;
-        int quantity;
+        double valueSum;
+        int quantitySum;
         int lastSeqNumber;
-        double prevWMA;
-        int prevQuantity;
 
-        public TradeStats(double value, int quantity, int lastSeqNumber) {
-            this.value = value;
-            this.quantity = quantity;
-            this.lastSeqNumber = lastSeqNumber;
-            this.prevWMA = 0;
-            this.prevQuantity = 0;
+        public TradeStats() {
+            this.valueSum = 0;
+            this.quantitySum = 0;
+            this.lastSeqNumber = 0;
         }
     }
 }
