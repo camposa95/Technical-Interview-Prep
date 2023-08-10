@@ -41,9 +41,10 @@ public class Sentry1 {
                 return firstPart.trim();
             }
         } else {
-            int extraWhitespace = line_char_limit - line.length();
-            int spaceToAdd = line.contains(" ") ? extraWhitespace / (line.split(" ").length - 1) : 0;
-            int remainder = line.contains(" ") ? extraWhitespace % (line.split(" ").length - 1) : 0;
+            int extraWhitespace = line_char_limit - line.replaceAll("\\s", "").length();
+            int spaceCount = line.contains(" ") ? line.split(" ").length - 1 : 0;
+            int spaceToAdd = spaceCount > 0 ? extraWhitespace / spaceCount : 0;
+            int remainder = spaceCount > 0 ? extraWhitespace % spaceCount : 0;
     
             StringBuilder formattedLine = new StringBuilder();
             String[] words = line.split(" ");
@@ -63,5 +64,4 @@ public class Sentry1 {
         }
     }
     
-
 }
