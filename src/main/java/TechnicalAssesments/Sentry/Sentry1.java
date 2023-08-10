@@ -1,53 +1,71 @@
 package TechnicalAssesments.Sentry;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Sentry1 {
-    
-    public static String filterBadWords(String badWords, String message) {
-        // Split the badWords string into individual bad words.
-        String[] badWordList = badWords.split("\\s+");
 
-        // Process each bad word separately to ensure accurate replacements.
-        for (String badWord : badWordList) {
-            if (badWord.contains("*")) {
-                // Escape characters for regex and replace '*' with '.*' to match any characters.
-                String regexWord = badWord.replaceAll("\\*", ".*?");
-                // Use word boundaries and look ahead to match the entire word.
-                Pattern pattern = Pattern.compile("\\b" + regexWord + "(?=\\b|\\s|$)", Pattern.CASE_INSENSITIVE);
-                Matcher matcher = pattern.matcher(message);
-                StringBuffer sb = new StringBuffer();
+    public static List<String> add_whitespace(String words, int line_char_limit) {
+        String[] wordArray = words.split("\\s+");
+        List<String> result = new ArrayList<>();
+        int currentLineLength = 0;
+        StringBuilder currentLine = new StringBuilder();
 
-                // Find matches and replace them with asterisks of the same length.
-                while (matcher.find()) {
-                    String matchedWord = matcher.group();
-                    matcher.appendReplacement(sb, "*".repeat(matchedWord.length()));
+        for (String word : wordArray) {
+            if (currentLineLength + currentLine.length() + word.length() <= line_char_limit) {
+                if (currentLine.length() > 0) {
+                    currentLine.append(" ");
+                    currentLineLength++;
                 }
-                matcher.appendTail(sb);
-                message = sb.toString();
+                currentLine.append(word);
+                currentLineLength += word.length();
             } else {
-                // For fixed bad words, use word boundaries to match the entire word.
-                Pattern pattern = Pattern.compile("\\b" + Pattern.quote(badWord) + "\\b", Pattern.CASE_INSENSITIVE);
-                Matcher matcher = pattern.matcher(message);
-                StringBuffer sb = new StringBuffer();
-
-                // Find matches and replace them with asterisks of the same length.
-                while (matcher.find()) {
-                    String matchedWord = matcher.group();
-                    matcher.appendReplacement(sb, "*".repeat(matchedWord.length()));
-                }
-                matcher.appendTail(sb);
-                message = sb.toString();
+                result.add(formatLine(currentLine.toString(), currentLineLength, line_char_limit));
+                currentLine = new StringBuilder(word);
+                currentLineLength = word.length();
             }
         }
 
-        return message;
+        if (currentLine.length() > 0) {
+            result.add(formatLine(currentLine.toString(), currentLineLength, line_char_limit));
+        }
+
+        return result;
     }
 
+    private static String formatLine(String line, int currentLength, int line_char_limit) {
+        if (line.contains("-")) {
+            int hyphenIndex = line.indexOf("-");
+            String firstPart = line.substring(0, hyphenIndex + 1);
+            String secondPart = line.substring(hyphenIndex + 1);
 
+            if (currentLength + secondPart.length() <= line_char_limit) {
+                return line;
+            } else {
+                return firstPart.trim();
+            }
+        } else {
+            int extraWhitespace = line_char_limit - currentLength;
+            int spaceToAdd = line.contains(" ") ? extraWhitespace / (line.split(" ").length - 1) : 0;
+            int remainder = line.contains(" ") ? extraWhitespace % (line.split(" ").length - 1) : 0;
 
-
+            StringBuilder formattedLine = new StringBuilder();
+            String[] words = line.split(" ");
+            for (int i = 0; i < words.length; i++) {
+                formattedLine.append(words[i]);
+                if (i < words.length - 1) {
+                    for (int j = 0; j < spaceToAdd; j++) {
+                        formattedLine.append(" ");
+                    }
+                    if (remainder > 0) {
+                        formattedLine.append(" ");
+                        remainder--;
+                    }
+                }
+            }
+            return formattedLine.toString();
+        }
+    }
 
 
 }

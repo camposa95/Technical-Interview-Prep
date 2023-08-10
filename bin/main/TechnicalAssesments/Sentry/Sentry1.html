@@ -1,0 +1,184 @@
+<div id="epjd13fa4do-instruction">
+    <div>Given a string containing a sequence of words separated by whitespace-like characters, add white spaces so that
+        the words can be printed neatly given a character limit per line. Assume that there are no words that exceed the
+        line’s width.</div>
+
+    <p>&nbsp;</p>
+
+    <p>Your solution will take as input:</p>
+
+    <ol>
+        <li>A string of words separated by whitespace-like characters</li>
+        <li>An integer representing the length which each line in the output must be</li>
+    </ol>
+
+    <p>&nbsp;</p>
+
+    <p>If there is any amount or type of whitespace between two words in the input string, they are considered separate
+        words with the exception of hyphenated words (more information below about how to treat hyphenated words). For
+        example, “hello world” and “hello world” lead to the same output.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Consider the following sample input:</p>
+
+    <pre><code>"a cat is an animal"
+6</code></pre>
+
+    <p>The function should output the following:</p>
+
+    <pre><code>['a  cat', 'is  an', 'animal']</code></pre>
+
+    <p>Each element in the output is a line, each line has 6 characters (including whitespace characters).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Even Whitespace Distribution</h4>
+
+    <div>There’s a catch: <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>whitespace
+                                                                                                                                                                                                    should
+                                                                                                                                                                                                    be
+                                                                                                                                                                                                    distributed
+                                                                                                                                                                                                    evenly
+                                                                                                                                                                                                    between
+                                                                                                                                                                                                    words
+                                                                                                                                                                                                    in
+                                                                                                                                                                                                    a
+                                                                                                                                                                                                    line</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>.
+        When not possible, the extra whitespace should be appended to the end of the line.</div>
+
+    <div>Therefore, given the following input:</div>
+
+    <pre><code>"cat is an animal and so is a dog"
+12</code></pre>
+
+    <p>Your function should return:</p>
+
+    <pre><code>["cat  is  an ", "animal   and", "so is a dog "]
+</code></pre>
+
+    <p>In this example, "cat is an " has two spaces between each word because the words themselves have 7 characters,
+        which leaves 5 for white spaces to be added. This allows us to add two spaces between each word, with one white
+        space left over to be added to the end because it couldn’t be evenly added between the words.</p>
+
+    <p>Line two, "animal and", can only contain two words, so we are allowed to add all the whitespaces between the two
+        words.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><span style="font-size:21px;">Single Word Lines</span></h4>
+
+    <div>If any of the lines end up having only 1 word on them, then instead of appending the extra whitespace to the
+        end of the line, we want to center the word. If the word can’t be exactly centered, as before, the extra white
+        space should be added to the end of the line.</div>
+
+    <p>For example , the input:</p>
+
+    <pre><code>"human"
+8
+</code></pre>
+
+    <p>Will output</p>
+
+    <pre><code>[" human  "]
+</code></pre>
+
+    <p>There are 3 extra white space characters so the extra whitespace goes to the end.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Hyphenated Words</h4>
+
+    <div>
+        <p>Hyphenated words (”self-inflicted”, “pre-approval”, “mother-in-law”) should be kept on one line if possible,
+            but if the first part of the hyphenated word including the hyphen (”self-” from “self-inflicted”) fits while
+            the whole word doesn’t, then the word should be split up.</p>
+
+        <p>Hyphenated words can have any amount of whitespace around the hyphens, but they should be treated as if there
+            is no white space around the hyphens. For example, an input of “self-inflicted” and “self - inflicted”
+            should lead to the same result.</p>
+    </div>
+
+    <p>For example, given the following input:</p>
+
+    <pre><code>"auto-complete is my go  -   to"
+8
+</code></pre>
+
+    <p>Your function should return:</p>
+
+    <pre><code>[" auto-  ", "complete", "is    my", " go-to  "]
+</code></pre>
+
+    <p>In this example, “auto-complete” cannot fit on the line, so we split it up and have “auto-” on the first line.
+        Even with the extra whitespace, we treat it as “go-to” , which fits on one line so there is no need to split it
+        up.</p>
+</div>
+
+Given a string containing a sequence of words separated by whitespace-like characters, add white spaces so that the words can be printed neatly given a character limit per line. Assume that there are no words that exceed the line’s width.
+
+Your solution will take as input:
+
+A string of words separated by whitespace-like characters
+An integer representing the length which each line in the output must be
+If there is any amount or type of whitespace between two words in the input string, they are considered separate words with the exception of hyphenated words (more information below about how to treat hyphenated words). For example, “hello world” and “hello world” lead to the same output.
+
+Consider the following sample input:
+
+"a cat is an animal"
+6
+
+The function should output the following:
+
+['a cat', 'is an', 'animal']
+
+Each element in the output is a line, each line has 6 characters (including whitespace characters).
+
+Even Whitespace Distribution:
+
+There’s a catch: whitespace should be distributed evenly between words in a line. When not possible, the extra whitespace should be appended to the end of the line.
+
+Therefore, given the following input:
+
+"cat is an animal and so is a dog"
+12
+
+Your function should return:
+
+["cat is an ", "animal and", "so is a dog "]
+
+In this example, "cat is an " has two spaces between each word because the words themselves have 7 characters, which leaves 5 for white spaces to be added. This allows us to add two spaces between each word, with one white space left over to be added to the end because it couldn’t be evenly added between the words.
+
+Line two, "animal and", can only contain two words, so we are allowed to add all the whitespaces between the two words.
+
+Single Word Lines:
+
+If any of the lines end up having only 1 word on them, then instead of appending the extra whitespace to the end of the line, we want to center the word. If the word can’t be exactly centered, as before, the extra white space should be added to the end of the line.
+
+For example, the input:
+
+"human"
+8
+
+Will output:
+
+[" human "]
+
+There are 3 extra white space characters, so the extra whitespace goes to the end.
+
+Hyphenated Words:
+
+Hyphenated words ("self-inflicted", "pre-approval", "mother-in-law") should be kept on one line if possible, but if the first part of the hyphenated word including the hyphen ("self-" from "self-inflicted") fits while the whole word doesn’t, then the word should be split up.
+
+Hyphenated words can have any amount of whitespace around the hyphens, but they should be treated as if there is no white space around the hyphens. For example, an input of "self-inflicted" and "self - inflicted" should lead to the same result.
+
+For example, given the following input:
+
+"auto-complete is my go - to"
+8
+
+Your function should return:
+
+[" auto- ", "complete", "is my", " go-to "]
+
+In this example, "auto-complete" cannot fit on the line, so we split it up and have "auto-" on the first line. Even with the extra whitespace, we treat it as "go-to", which fits on one line so there is no need to split it up.
