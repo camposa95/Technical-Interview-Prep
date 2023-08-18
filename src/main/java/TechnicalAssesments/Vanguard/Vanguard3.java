@@ -1,5 +1,6 @@
 package TechnicalAssesments.Vanguard;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -19,36 +20,13 @@ public class Vanguard3 {
      *  2. STRING t
      */
     public static List<String> missingWords(String s, String t) {
-        String[] sWords = s.split(" ");
-        String[] tWords = t.split(" ");
+        String missing = s.replace(t, "");
 
-        Map<String, Integer> tMap = new HashMap<String, Integer>();
-        for (int i = 0; i < tWords.length; i++) {
-            String tWord = tWords[i].intern();
-
-            if (tMap.containsKey(tWord)) {
-                tMap.put(tWord, tMap.get(tWord) + 1);
-            } else {
-                tMap.put(tWord, 1);
-            }
-        }
-        
-
-        List<String> result = new LinkedList<String>();
+        String[] sWords = missing.split(" ");
+        List<String> result = new LinkedList<>();
         for (int i = 0; i < sWords.length; i++) {
-            String sWord = sWords[i].intern();
-
-            if (!tMap.entrySet().contains(sWord)) {
-                result.add(sWord);
-            } else {
-                if (tMap.get(sWord) > 1) {
-                    tMap.put(sWord, tMap.get(sWord) - 1);
-                } else {
-                    tMap.remove(sWord);
-                }
-            }
+            result.add(sWords[i]);
         }
-
 
         return result;
     }
