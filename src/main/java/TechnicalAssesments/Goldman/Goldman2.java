@@ -1,42 +1,52 @@
 package TechnicalAssesments.Goldman;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Goldman2 {
-    public static long calculateMaximumProfit(int cost_per_cut, int metal_price, int[] lengths) {
 
-    long maxProfit = 0;
-    long curProfit = 0;
-    int maxLength = 0;
-    int totalRods = 0;
-    int totalCuts = 0;
-    Arrays.sort(lengths);
-    // Find out maximum length
-    for (int curLength : lengths) {
-        maxLength = Math.max(maxLength, curLength);
-    }
+    public static int maxProfit(int costPerCut, int salePrice, List<Integer> lengths) {
+        int maxProfit = 0;
+        int currentProfit = 0;
+        int maxRodLength = 0;
 
-    // For each of the possible rod lengths, calculate possible profit
-    for (int curLength = 1; curLength <=maxLength; curLength++) {        
-        int prevSum=0;
-        // Cut each of the rods into smaller rods of size curLength
-        // Count total rods and total cuts
-        for (int length : lengths) {
-            int cut = 0;
-            int waste = 0;
-            if(length%curLength==0){
-                cut=(length/curLength)-1;
-            }else{
-                cut=length/curLength;
-            }
-            waste=length%curLength;
-            int profit=Math.max(prevSum,prevSum+(length*metal_price-cut*cost_per_cut-waste*metal_price));
-            prevSum=profit;
+        // Sort the lengths in ascending order
+        Collections.sort(lengths);
+
+        // Find out the maximum length among all rods
+        for (int currentLength : lengths) {
+            maxRodLength = Math.max(maxRodLength, currentLength);
         }
 
-        curProfit=prevSum;
-        // Calculate maximum profit
-        maxProfit = Math.max(maxProfit, curProfit);
-    }
+        // For each possible rod length, calculate possible profit
+        for (int currentLength = 1; currentLength <= maxRodLength; currentLength++) {
+            int previousSum = 0; // Profit accumulated from previous cuts
 
-    return maxProfit;
-}
+            // Cut each rod into smaller rods of size curLength
+            // Count total rods and total cuts
+            for (int length : lengths) {
+                int cuts = 0;
+                int waste = 0;
+
+                // Calculate cuts and waste based on rod length and currentLength
+                if (length % currentLength == 0) {
+                    cuts = (length / currentLength) - 1;
+                } else {
+                    cuts = length / currentLength;
+                }
+                waste = length % currentLength;
+
+                // Calculate profit for the current rod length and update prevSum
+                int profit = Math.max(previousSum,
+                        previousSum + (length * salePrice - cuts * costPerCut - waste * salePrice));
+                previousSum = profit;
+            }
+
+            currentProfit = previousSum;
+            // Update the maximum profit obtained so far
+            maxProfit = Math.max(maxProfit, currentProfit);
+        }
+
+        return maxProfit;
+    }
 }
