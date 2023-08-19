@@ -1,0 +1,116 @@
+<div class="ps-content-wrapper-v0">
+    <p>A password string, <em>pwd,</em> consists of binary characters (0s and 1s). A cyber security expert is trying to
+        determine the minimum number of changes required to make the password secure. To do so, it must be divided into
+        substrings of non-overlapping, even length substrings. Each substring can only contain 1s or 0s, not a mix. This
+        helps to ensure that the password is strong and less vulnerable to hacking attacks.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Find the minimum number of characters that must be flipped in the password string, i.e. changed from 0 to 1 or 1
+        to 0 to allow the string to be divided as described.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Note: A <em>substring</em> is a contiguous sequence of characters in a string.</p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Example</strong></p>
+
+    <p>Given <em>pwd</em> = "1110011000"</p>
+
+    <p>&nbsp;</p>
+
+    <p><b id="docs-internal-guid-0915f6f6-7fff-e66f-72c6-e45c618e75ee"><img height="131"
+                src="https://hrcdn.net/s3_pub/istreet-assets/LJBSbymjdhSNAwDrrgA1xw/binary%20changes.drawio.svg"
+                width="1001"></b></p>
+
+    <p>&nbsp;</p>
+
+    <p>The two substrings have lengths 8 and 2 respectively. Since both lengths are even, the division is valid. So the
+        answer is 3.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Function Description</p>
+
+    <p>Complete the function <em>getMinFlips</em> in the editor below.</p>
+
+    <p>&nbsp;</p>
+
+    <p><em>getMinFlips</em> takes the following arguments:</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>str pwd:</em> the binary string</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Returns</p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int:</em> the minimum number of flips to make the division possible</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Constraints</p>
+
+    <ul>
+        <li>2 ≤ <em>pwd </em>≤ 10<sup>5</sup>
+        </li>
+        <li>The length of&nbsp;<em>pwd</em>&nbsp;is even.</li>
+        <li>
+            <em>pwd</em>&nbsp;contains only 1s and 0s.
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <details>
+        <summary class="section-title">Input Format For Custom Testing</summary>
+
+        <div class="collapsable-details">
+            <p>The first line contains a string, <em>pwd</em>.</p>
+        </div>
+    </details>
+
+    <details open="open">
+        <summary class="section-title">Sample Case 0</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN          FUNCTION
+    -----          --------
+    100110   →     pwd = "100110"
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>3
+    </pre>
+
+            <p class="section-title">Explanation</p>
+            One of the optimal ways is to flip all the 1s or all the 0s to get "000000" or "111111" which are both valid
+            without divisions.
+        </div>
+    </details>
+
+    <details>
+        <summary class="section-title">Sample Case 1</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN          FUNCTION
+    -----          --------
+    101011   →     pwd = "101011"
+    </pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>2
+    </pre>
+
+            <p class="section-title">Explanation</p>
+            An optimal solution is to flip both the 0s to get "111111".
+        </div>
+    </details>
+</div>
