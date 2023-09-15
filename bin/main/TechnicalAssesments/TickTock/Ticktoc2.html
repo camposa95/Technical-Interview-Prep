@@ -1,0 +1,317 @@
+<div class="ps-content-wrapper-v0">
+    <p>ByteDance is working on a new algorithm that operates on a special CPU that can handle <em>n</em> types of tasks,
+        and the priority of the<em> i<sup>th</sup></em> task is represented by the array<em> priority[i]</em>. The CPU
+        will run for <em>y</em> seconds and you can choose any task to perform which follows the given conditions:</p>
+
+    <ul>
+        <li>In each second, you&nbsp;user can choose to perform any available task from the <em>n</em> types (if there
+            are any tasks to perform).</li>
+        <li>It is allowed to perform multiple tasks of the same type within the given time frame, but there is a time
+            constraint that there must be at least <em>x</em> seconds between any two consecutive tasks of the same
+            type.</li>
+        <li>It is not allowed to perform more than one task at any second.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p>Given <em>n</em> tasks, an array <em>priority, </em>and<em> </em>an integer<em> x</em> and <i>y</i>, find the
+        maximum possible sum of the priority of tasks performed during the <em>y</em> seconds.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Example</p>
+
+    <p>Given, <em>n</em> = 3, <em>priority = </em>[3, 1, 2], <em>x =</em> 5, and <em>y = </em>7.</p>
+
+    <p>&nbsp;</p>
+
+    <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+        <thead>
+            <tr>
+                <th scope="col">Seconds</th>
+                <th scope="col">Task Performed</th>
+                <th scope="col">Sum of priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>&nbsp; &nbsp; &nbsp; </strong>1<span style="font-size:12.5px;">.&nbsp;</span>
+                </td>
+                <td>Perform a task of the 1<sup>st</sup> type</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 2.&nbsp;</td>
+                <td>Perform a task of the 3<sup>rd</sup> type</td>
+                <td>3 + 2 = 5</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 3.&nbsp;</td>
+                <td>Perform a task of the 2<sup>nd</sup> type</td>
+                <td>3 + 2 +1 = 6</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 4.&nbsp;</td>
+                <td>No task perfomed</td>
+                <td>3 + 2 + 1 = 6</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 5.&nbsp;</td>
+                <td>No task perfomed</td>
+                <td>3 + 2 + 1 = 6</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 6.&nbsp;</td>
+                <td>Perform a task of the 1<sup>st</sup> type</td>
+                <td>3 + 2 + 1 + 3 = 9</td>
+            </tr>
+            <tr>
+                <td>&nbsp; &nbsp; &nbsp; 7.&nbsp;</td>
+                <td>Perform a task of the 3<sup>rd</sup> type</td>
+                <td>3 + 2 + 1 + 3 + 2 = 11</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Hence, the maximum sum of priority of tasks we can get is equal to 11. We performed the task of the
+        1<sup>st</sup> type then till the second 5 we cannot perform the task of the 1<sup>st</sup> type again because
+        of the time constraint x, from the 6th second we can perform the task of the 1<sup>st</sup> type. The same
+        applies to the task of the 3<sup>rd</sup>&nbsp;type as we once performed it in the 2<sup>nd</sup> second, and
+        then till the 6<sup>th</sup> second, we cannot perform the task of the 3<sup>rd</sup> type.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Function Description</p>
+
+    <p>Complete the function <i>maximumPrioritySum</i> in the editor below.</p>
+
+    <p><i>maximumPrioritySum</i> has the following parameters:</p>
+
+    <ul>
+        <li>
+            <em>int priority[n]:</em>&nbsp; an array of integers representing the priorities of each task.
+        </li>
+        <li>
+            <em>int x</em>: an integer&nbsp;denoting the minimum time constraint between every <em>2</em>&nbsp;tasks of
+            the same type to be performed.
+        </li>
+        <li>
+            <em>int y</em>: an integer&nbsp;denoting the number of seconds the CPU will run.
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Returns</strong></p>
+
+    <p><em>int:</em> the maximum possible sum of the priority of tasks performed during the <em>y</em> seconds.</p>
+
+    <p>&nbsp;</p>
+
+    <p class="section-title">Constraints</p>
+
+    <ul>
+        <li>1&nbsp;≤<em> n&nbsp;</em>≤ 10<sup>5</sup>
+        </li>
+        <li>1&nbsp;≤<em> priority<span style="font-size:12px;">[i]&nbsp;</span></em>≤&nbsp;10<sup>5</sup>
+        </li>
+        <li>1&nbsp;≤<em> x&nbsp;</em>≤ 10<sup>9</sup>
+        </li>
+        <li>1&nbsp;≤<em> y&nbsp;</em>≤ 10<sup>9</sup>
+        </li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <!-- <StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details>
+        <summary class="section-title">Input Format For Custom Testing</summary>
+
+        <div class="collapsable-details">
+            <p>The first line contains an integer <em>n, </em>the number of types of tasks present.</p>
+
+            <p>Each of the next <em>n</em> lines contains an integer <em>priority[i]</em>.</p>
+
+            <p>The next line contains an integer <em>x, </em>the minimum time constraint between every
+                <em>2</em>&nbsp;tasks of the same type to be performed.</p>
+
+            <p>The next line contains an integer <em>y, </em>the number of seconds the CPU will run.</p>
+        </div>
+    </details>
+    <!-- </StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+    <details>
+        <summary class="section-title">Sample Case 0</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN         Function
+    -----         --------
+    3       ⇒     priority[] size n = 3
+    2       ⇒     priority = [2, 1, 3]
+    1
+    3
+    2       ⇒     x = 2
+    3       ⇒     y = 3</pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>8</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Seconds</th>
+                        <th scope="col">Tasks Performed</th>
+                        <th scope="col">Sum of priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong> 1<span style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 3<sup>rd </sup>type</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong> 2<span style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 1<sup>st</sup> type</td>
+                        <td>3 + 2 =5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; 3<span style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 3<sup>rd</sup> type</td>
+                        <td>3 + 2 + 3 =8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Hence, the maximum sum of priority we can get is equal to 8.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary class="section-title">Sample Case 1</summary>
+
+        <div class="collapsable-details">
+            <p class="section-title">Sample Input For Custom Testing</p>
+
+            <pre>STDIN &nbsp; &nbsp; &nbsp; &nbsp; Function
+    ----- &nbsp; &nbsp; &nbsp; &nbsp; --------
+    1  &nbsp;    ⇒     priority[] size n = 1
+    1       ⇒     priority = [1]
+    3       ⇒     x = 3
+    10      ⇒     y = 10</pre>
+
+            <p class="section-title">Sample Output</p>
+
+            <pre>4</pre>
+
+            <p class="section-title">Explanation</p>
+
+            <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Seconds</th>
+                        <th scope="col">Tasks Performed</th>
+                        <th scope="col">Sum of priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 1<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 1<sup>st</sup> type</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 2<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0= 1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 3<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0+0= 1</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 4<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 1<sup>st</sup> type</td>
+                        <td>1+0+0+1= 2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 5<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0+0+1+0= 2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 6<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0+0+1+0+0= 2</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 7<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 1<sup>st</sup> type</td>
+                        <td>1+0+0+1+0+0+1= 3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 8<span
+                                style="font-size:12.5px;">&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0+0+1+0+0+1+0= 3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 9<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>No task perfomed</td>
+                        <td>1+0+0+1+0+0+1+0+0= 3</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; 10<span
+                                style="font-size:12.5px;">.&nbsp;</span>
+                        </td>
+                        <td>Perform a task of the 1<sup>st</sup> type</td>
+                        <td>1+0+0+1+0+0+1+0+0+1= 4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Hence, the maximum possible sum of priority we can get is 4 by performing the task of
+                1<sup>st</sup>&nbsp;type in the interval of <em>x</em> seconds.</p>
+        </div>
+    </details>
+</div>
