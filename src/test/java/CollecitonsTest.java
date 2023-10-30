@@ -1,6 +1,7 @@
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
@@ -201,5 +202,10 @@ public class CollecitonsTest {
         // for common Collection operations like sorting and copying over elements
 
 
+    }
+
+    @Test
+    public void testMaxHeap() {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
     }
 }

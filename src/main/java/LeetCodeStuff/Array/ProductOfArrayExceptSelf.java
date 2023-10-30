@@ -18,7 +18,7 @@ public class ProductOfArrayExceptSelf {
 
         // multiply each entry by the product before after the entry
         int afterProduct= 1;
-        for (int i = nums.length - 1; i >= 0; i--) {
+        for (int i = nums.length - 2; i >= 0; i--) {
             result[i] *= afterProduct;
 
             // multiply running product afterwards so we don't include it
